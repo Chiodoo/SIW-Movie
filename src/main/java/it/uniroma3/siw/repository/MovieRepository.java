@@ -6,3 +6,4 @@ import it.uniroma3.siw.model.Movie;
 public interface MovieRepository extends CrudRepository<Movie, Long>{
 
 }
+//Ora abbiamo a disposizione i metodi CrudRepository
