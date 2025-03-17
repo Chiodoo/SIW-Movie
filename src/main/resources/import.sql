@@ -1,5 +1,5 @@
 --Inserisco film
-INSERT INTO movie (id, title, year, url_image) VALUES (1, 'Inception', 2010, 'https://example.com/inception.jpg');
+INSERT INTO movie (id, title, year, url_image) VALUES (1, 'Inception', 2010, 'https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg');
 INSERT INTO movie (id, title, year, url_image) VALUES (2, 'The Dark Knight', 2008, 'https://example.com/the_dark_knight.jpg');
 INSERT INTO movie (id, title, year, url_image) VALUES (3, 'Interstellar', 2014, 'https://example.com/interstellar.jpg');
 INSERT INTO movie (id, title, year, url_image) VALUES (4, 'Pulp Fiction', 1994, 'https://example.com/pulp_fiction.jpg');

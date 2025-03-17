@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Artista</title>
-        <link rel="stylesheet" href="/stile.css?version=2" />
-    </head>
+  <head>
+    <title>Artist</title>
+    <link rel="stylesheet" href="/stile.css?version=2" />
+  </head>
 
-    <body>
-        <div><a href="/"><img src="/logo-siw.png" width="50%"></a></div>
-        <div th:if="${artist}">
-        <h1 th:text="'(' + ${artist.nome} + ${artist.cognome} + ')'">Nome e cognome artista</h1>
-            <div>Anno di nascita: <span th:text="'(' + ${artist.nascita} + ')'">2000</span></div>
-        </div>
-        <div th:unless="${artist}">Non esiste</div>
-    </body>
+  <body>
+    <div><a href="/"><img src="/logo-siw.png" width="50%"/></a></div>
+    <div th:if="${artist}">
+    <h1 th:text="${artist.nome} + ' ' + ${artist.cognome}">Nome</h1>
+        <div>Data di nascita: <span th:text="'(' + ${artist.nascita} + ')'">01/01/2000</span></div>
+    </div>
+    <div th:unless="${artist}">Non esiste</div>
+  </body>
 </html>
