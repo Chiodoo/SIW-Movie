@@ -11,12 +11,12 @@ INSERT INTO movie (id, title, year, url_image) VALUES (nextval('movie_seq'), 'Th
 INSERT INTO movie (id, title, year, url_image) VALUES (nextval('movie_seq'), 'The Lord of the Rings: The Return of the King', 2003, 'https://m.media-amazon.com/images/M/MV5BMTZkMjBjNWMtZGI5OC00MGU0LTk4ZTItODg2NWM3NTVmNWQ4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg');
 
 --Inserisco artisti
-INSERT INTO artist (id, name, surname, birth) VALUES (nextval('movie_seq'), 'Christopher', 'Nolan', '1970-07-30');
-INSERT INTO artist (id, name, surname, birth) VALUES (nextval('movie_seq'), 'Quentin', 'Tarantino', '1963-03-27');
-INSERT INTO artist (id, name, surname, birth) VALUES (nextval('movie_seq'), 'Lana', 'Wachowski', '1965-06-21');
-INSERT INTO artist (id, name, surname, birth) VALUES (nextval('movie_seq'), 'Lilly', 'Wachowski', '1967-12-29');
-INSERT INTO artist (id, name, surname, birth) VALUES (nextval('movie_seq'), 'David', 'Fincher', '1962-08-28');
-INSERT INTO artist (id, name, surname, birth) VALUES (nextval('movie_seq'), 'Robert', 'Zemeckis', '1952-05-14');
-INSERT INTO artist (id, name, surname, birth) VALUES (nextval('movie_seq'), 'Frank', 'Darabont', '1959-01-28');
-INSERT INTO artist (id, name, surname, birth) VALUES (nextval('movie_seq'), 'Francis Ford', 'Coppola', '1939-04-07');
-INSERT INTO artist (id, name, surname, birth) VALUES (nextval('movie_seq'), 'Peter', 'Jackson', '1961-10-31');
+INSERT INTO artist (id, name, surname, birth) VALUES (nextval('artist_seq'), 'Christopher', 'Nolan', '1970-07-30');
+INSERT INTO artist (id, name, surname, birth) VALUES (nextval('artist_seq'), 'Quentin', 'Tarantino', '1963-03-27');
+INSERT INTO artist (id, name, surname, birth) VALUES (nextval('artist_seq'), 'Lana', 'Wachowski', '1965-06-21');
+INSERT INTO artist (id, name, surname, birth) VALUES (nextval('artist_seq'), 'Lilly', 'Wachowski', '1967-12-29');
+INSERT INTO artist (id, name, surname, birth) VALUES (nextval('artist_seq'), 'David', 'Fincher', '1962-08-28');
+INSERT INTO artist (id, name, surname, birth) VALUES (nextval('artist_seq'), 'Robert', 'Zemeckis', '1952-05-14');
+INSERT INTO artist (id, name, surname, birth) VALUES (nextval('artist_seq'), 'Frank', 'Darabont', '1959-01-28');
+INSERT INTO artist (id, name, surname, birth) VALUES (nextval('artist_seq'), 'Francis Ford', 'Coppola', '1939-04-07');
+INSERT INTO artist (id, name, surname, birth) VALUES (nextval('artist_seq'), 'Peter', 'Jackson', '1961-10-31');
