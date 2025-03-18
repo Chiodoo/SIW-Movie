@@ -14,9 +14,9 @@ public class Artist {
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Long id;
 
-        private String nome;
-        private String cognome;
-        private LocalDate nascita;
+        private String name;
+        private String surname;
+        private LocalDate birth;
 
         public Long getId() {
                 return id;
@@ -26,37 +26,37 @@ public class Artist {
                 this.id = id;
         }
 
-        public String getNome() {
-                return nome;
+        public String getName() {
+                return name;
         }
 
-        public void setNome(String nome) {
-                this.nome = nome;
+        public void setName(String nome) {
+                this.name = nome;
         }
 
-        public String getCognome() {
-                return cognome;
+        public String getSurname() {
+                return surname;
         }
 
-        public void setCognome(String cognome) {
-                this.cognome = cognome;
+        public void setSurname(String cognome) {
+                this.surname = cognome;
         }
 
-        public LocalDate getNascita() {
-                return nascita;
+        public LocalDate getBirth() {
+                return birth;
         }
         
-        public void setNascita(LocalDate nascita) {
-                this.nascita = nascita;
+        public void setBirth(LocalDate nascita) {
+                this.birth = nascita;
         }
 
         @Override
         public int hashCode() {
                 final int prime = 31;
                 int result = 1;
-                result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-                result = prime * result + ((cognome == null) ? 0 : cognome.hashCode());
-                result = prime * result + ((nascita == null) ? 0 : nascita.hashCode());
+                result = prime * result + ((name == null) ? 0 : name.hashCode());
+                result = prime * result + ((surname == null) ? 0 : surname.hashCode());
+                result = prime * result + ((birth == null) ? 0 : birth.hashCode());
                 return result;
         }
 
@@ -69,20 +69,20 @@ public class Artist {
                 if (getClass() != obj.getClass())
                         return false;
                 Artist other = (Artist) obj;
-                if (nome == null) {
-                        if (other.nome != null)
+                if (name == null) {
+                        if (other.name != null)
                                 return false;
-                } else if (!nome.equals(other.nome))
+                } else if (!name.equals(other.name))
                         return false;
-                if (cognome == null) {
-                        if (other.cognome != null)
+                if (surname == null) {
+                        if (other.surname != null)
                                 return false;
-                } else if (!cognome.equals(other.cognome))
+                } else if (!surname.equals(other.surname))
                         return false;
-                if (nascita == null) {
-                        if (other.nascita != null)
+                if (birth == null) {
+                        if (other.birth != null)
                                 return false;
-                } else if (!nascita.equals(other.nascita))
+                } else if (!birth.equals(other.birth))
                         return false;
                 return true;
         }

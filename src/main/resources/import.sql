@@ -11,12 +11,12 @@ INSERT INTO movie (id, title, year, url_image) VALUES (9, 'The Godfather', 1972,
 INSERT INTO movie (id, title, year, url_image) VALUES (10, 'The Lord of the Rings: The Return of the King', 2003, 'https://m.media-amazon.com/images/M/MV5BMTZkMjBjNWMtZGI5OC00MGU0LTk4ZTItODg2NWM3NTVmNWQ4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg');
 
 --Inserisco artisti
-INSERT INTO artist (id, nome, cognome, nascita) VALUES (1, 'Christopher', 'Nolan', '1970-07-30');
-INSERT INTO artist (id, nome, cognome, nascita) VALUES (2, 'Quentin', 'Tarantino', '1963-03-27');
-INSERT INTO artist (id, nome, cognome, nascita) VALUES (3, 'Lana', 'Wachowski', '1965-06-21');
-INSERT INTO artist (id, nome, cognome, nascita) VALUES (4, 'Lilly', 'Wachowski', '1967-12-29');
-INSERT INTO artist (id, nome, cognome, nascita) VALUES (5, 'David', 'Fincher', '1962-08-28');
-INSERT INTO artist (id, nome, cognome, nascita) VALUES (6, 'Robert', 'Zemeckis', '1952-05-14');
-INSERT INTO artist (id, nome, cognome, nascita) VALUES (7, 'Frank', 'Darabont', '1959-01-28');
-INSERT INTO artist (id, nome, cognome, nascita) VALUES (8, 'Francis Ford', 'Coppola', '1939-04-07');
-INSERT INTO artist (id, nome, cognome, nascita) VALUES (9, 'Peter', 'Jackson', '1961-10-31');
+INSERT INTO artist (id, name, surname, birth) VALUES (1, 'Christopher', 'Nolan', '1970-07-30');
+INSERT INTO artist (id, name, surname, birth) VALUES (2, 'Quentin', 'Tarantino', '1963-03-27');
+INSERT INTO artist (id, name, surname, birth) VALUES (3, 'Lana', 'Wachowski', '1965-06-21');
+INSERT INTO artist (id, name, surname, birth) VALUES (4, 'Lilly', 'Wachowski', '1967-12-29');
+INSERT INTO artist (id, name, surname, birth) VALUES (5, 'David', 'Fincher', '1962-08-28');
+INSERT INTO artist (id, name, surname, birth) VALUES (6, 'Robert', 'Zemeckis', '1952-05-14');
+INSERT INTO artist (id, name, surname, birth) VALUES (7, 'Frank', 'Darabont', '1959-01-28');
+INSERT INTO artist (id, name, surname, birth) VALUES (8, 'Francis Ford', 'Coppola', '1939-04-07');
+INSERT INTO artist (id, name, surname, birth) VALUES (9, 'Peter', 'Jackson', '1961-10-31');

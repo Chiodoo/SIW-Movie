@@ -13,7 +13,7 @@
     <ul>
       <li th:each="artist : ${artists}">
         <a th:href="@{'/artist' + '/' + ${artist.id}}"
-           th:text="${artist.nome} + ' ' + ${artist.cognome} + ' (' + ${artist.nascita} + ')'">Pippo Pluto (01/01/2000)</a>
+           th:text="${artist.name} + ' ' + ${artist.surname} + ' (' + ${artist.birth} + ')'">Pippo Pluto (01/01/2000)</a>
       </li>
     </ul>
   </body>
