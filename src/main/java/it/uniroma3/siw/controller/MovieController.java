@@ -5,8 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import it.uniroma3.siw.model.Movie;
 import it.uniroma3.siw.service.MovieService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+
+
 
 
 @Controller
@@ -30,7 +36,17 @@ public class MovieController {
         return "movies.html";
     }
     
-
-
-
+    @GetMapping("/formNewMovie")
+    public String formNewMovie(Model model) {
+        model.addAttribute("movie", new Movie());
+        return "formNewMovie.html";
+    }
+    
+    @PostMapping("/movie")
+    public String newMovie(@ModelAttribute("movie") Movie movie, Model model) {
+        this.movieService.save(movie);
+        model.addAttribute("movie", movie);
+        return "movie.html";
+    }
+    
 }

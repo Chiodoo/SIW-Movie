@@ -18,4 +18,9 @@ public class MovieService {
     public Iterable<Movie> getAllMovies() {
         return movieRepository.findAll();
     }
+
+    public void save(Movie movie) {
+        movieRepository.save(movie);
+        System.out.println("Aggiunto nuovo film nel db:"+ movie.getTitle());
+    }
 }
