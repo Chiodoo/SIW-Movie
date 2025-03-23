@@ -10,6 +10,8 @@ import it.uniroma3.siw.service.MovieService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -41,12 +43,9 @@ public class MovieController {
         model.addAttribute("movie", new Movie());
         return "formNewMovie.html";
     }
-    
     @PostMapping("/movie")
-    public String newMovie(@ModelAttribute("movie") Movie movie, Model model) {
+    public String newMovie(@ModelAttribute("movie") Movie movie) {
         this.movieService.save(movie);
-        model.addAttribute("movie", movie);
-        return "movie.html";
+        return "redirect:/movie/"+movie.getId();
     }
-    
 }
