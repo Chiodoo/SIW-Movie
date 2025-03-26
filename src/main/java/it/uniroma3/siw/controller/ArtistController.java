@@ -14,7 +14,7 @@ public class ArtistController {
     @Autowired ArtistService artistService;
 
     @GetMapping("/artist/{id}")
-    public String getMovie(@PathVariable("id") Long id, Model model) {
+    public String getArtist(@PathVariable("id") Long id, Model model) {
         model.addAttribute("artist", this.artistService.getArtistById(id));    
         return "artist.html";
     }

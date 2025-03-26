@@ -30,16 +30,16 @@ public class Artist {
                 return name;
         }
 
-        public void setName(String nome) {
-                this.name = nome;
+        public void setName(String name) {
+                this.name = name;
         }
 
         public String getSurname() {
                 return surname;
         }
 
-        public void setSurname(String cognome) {
-                this.surname = cognome;
+        public void setSurname(String surname) {
+                this.surname = surname;
         }
 
         public LocalDate getBirth() {
