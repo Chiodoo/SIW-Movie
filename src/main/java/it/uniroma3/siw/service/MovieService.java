@@ -11,7 +11,7 @@ public class MovieService {
     @Autowired  //Fa in modo di instanziare un oggetto di una classe che implementa questa interfaccia, in modo che non ci pensi io (lo fa il framework)
     private MovieRepository movieRepository;
 
-    public Movie getMovieById(long id) {
+    public Movie getMovieById(Long id) {
         return movieRepository.findById(id).get();
     }
 

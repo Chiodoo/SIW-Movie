@@ -12,7 +12,7 @@ public class ArtistService {
     @Autowired
     private ArtistRepository artistRepository;
 
-    public Artist getArtistById(long id) {
+    public Artist getArtistById(Long id) {
         return artistRepository.findById(id).get();
     }
 
