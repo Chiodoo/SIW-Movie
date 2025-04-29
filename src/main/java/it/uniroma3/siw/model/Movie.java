@@ -12,6 +12,7 @@ public class Movie {
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Long id;
 
+        @notBlank
         private String title;
         private Integer year;
         private String urlImage;
