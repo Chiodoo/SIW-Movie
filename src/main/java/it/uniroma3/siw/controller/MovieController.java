@@ -43,8 +43,12 @@ public class MovieController {
         return "formNewMovie.html";
     }
     @PostMapping("/movie")
-    public String newMovie(@ModelAttribute("movie") Movie movie) {
-        this.movieService.save(movie);
+    public String newMovie(@ModelAttribute("movie") Movie movie, Model model) {
+        if(movie.getTitle()==null || movie.getTitle().equals("")) {
+            model.addAttribute("messaggioErroreTitolo", "Campo obbligatorio");
+            return "formNewMovie.html";
+        } else
+            this.movieService.save(movie);
         return "redirect:/movie/"+movie.getId();
     }
 
