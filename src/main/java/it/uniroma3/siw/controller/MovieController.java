@@ -47,4 +47,9 @@ public class MovieController {
         this.movieService.save(movie);
         return "redirect:/movie/"+movie.getId();
     }
+
+    @GetMapping("/")
+    public String home() {
+        return "index.html";
+    }
 }
