@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import it.uniroma3.siw.model.Movie;
+import it.uniroma3.siw.service.ArtistService;
 import it.uniroma3.siw.service.MovieService;
 import jakarta.validation.Valid;
 
@@ -23,6 +24,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class MovieController {
 
     @Autowired MovieService movieService;       //Mi crei l'oggetto e me lo metti a disposizione automaticamente
+
+    @Autowired ArtistService artistService;
 
 
     //Metto a disposizione di chi genera la risposta un metodo (secondo parametro) per ricevere la risposta, 
@@ -55,5 +58,31 @@ public class MovieController {
             model.addAttribute("movie", movie);
             return "redirect:/movie/"+movie.getId();
         }
+    }
+
+    @GetMapping("/aggiornaFilm")
+    public String homeAggiornaFilm(Model model) {
+        model.addAttribute("movies",this.movieService.getAllMovies());
+        return "aggiornaFilm";
+    }
+
+    @GetMapping("/cancellaFilm/{id}")
+    public String deleteMovie(@PathVariable("id") Long id, Model model) {
+        this.movieService.deleteById(id);
+        return "redirect:/aggiornaFilm";
+    }
+
+
+    @GetMapping("modificaFilm/{id}")
+    public String modificaFilm(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("movie", this.movieService.getMovieById(id));
+        return "modificaFilm.html";
+    }
+
+    @GetMapping("/registaPerFilm/{id}")
+    public String aggiungiRegistaPerFilm(@PathVariable("id") Long id, Model model){
+        model.addAttribute("artists", this.artistService.getAllArtists());
+        model.addAttribute("movie",this.movieService.getMovieById(id));
+        return "registaPerFilm.html";
     }
 }
