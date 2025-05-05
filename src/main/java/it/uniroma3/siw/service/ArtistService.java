@@ -19,4 +19,8 @@ public class ArtistService {
     public Iterable<Artist> getAllArtists() {
         return artistRepository.findAll();
     }
+
+        public void save(Artist artist) {
+        artistRepository.save(artist);
+    }
 }
