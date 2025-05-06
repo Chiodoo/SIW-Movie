@@ -1,11 +1,14 @@
 package it.uniroma3.siw.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import it.uniroma3.siw.model.Artist;
 import it.uniroma3.siw.model.Movie;
 import it.uniroma3.siw.service.ArtistService;
 import it.uniroma3.siw.service.MovieService;
@@ -84,5 +87,28 @@ public class MovieController {
         model.addAttribute("artists", this.artistService.getAllArtists());
         model.addAttribute("movie",this.movieService.getMovieById(id));
         return "registaPerFilm.html";
+    }
+
+    @GetMapping("/aggiornaAttori/{id}")
+    public String aggiornaAttoriPerFilm(@PathVariable("id") Long id, Model model) {
+        Movie movie=this.movieService.getMovieById(id);
+        model.addAttribute("movie",movie);
+        model.addAttribute("attoriFilm", movie.getActors());
+        List<Artist> liberi = (List<Artist>) this.artistService.getAllArtists(); //Tutti gli artisti presenti nel sistema
+        liberi.removeAll(movie.getActors()); //Attori che non sono già associati a nessun film
+        model.addAttribute("attoriLiberi", liberi);
+        return "aggiornaAttori.html";
+    }
+
+    @GetMapping("/aggiungiAttoreAFilm/{movieId}/{artistId}")
+    public String aggiungiAttore(@PathVariable("movieId") Long movieId, @PathVariable("artistId") Long artistId, Model model) {
+        this.movieService.addActorToMovie(movieId, artistId);
+        Movie movie=this.movieService.getMovieById(movieId);
+        model.addAttribute("movie",movie);
+        model.addAttribute("attoriFilm", movie.getActors());
+        List<Artist> liberi = (List<Artist>) this.artistService.getAllArtists(); //Tutti gli artisti presenti nel sistema
+        liberi.removeAll(movie.getActors()); //Attori che non sono già associati a nessun film
+        model.addAttribute("attoriLiberi", liberi);
+        return "aggiornaAttori.html";
     }
 }

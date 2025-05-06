@@ -14,6 +14,9 @@
             <div>
                 <a th:href="@{'/registaPerFilm' + '/' + ${movie.id}}">Aggiungi regista</a>
             </div>
+            <div>
+                <a th:href="@{'/aggiornaAttori' + '/' + ${movie.id}}">Aggiungi attori</a>
+            </div>
         </div>
         <div th:unless="${movie}">Non esiste</div>
     </body>
