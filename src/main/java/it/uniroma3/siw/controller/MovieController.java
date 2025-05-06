@@ -89,6 +89,13 @@ public class MovieController {
         return "registaPerFilm.html";
     }
 
+    @GetMapping("/aggiungiRegistaFilm/{movieId}/{artistId}")
+    public String aggiungiRegista(@PathVariable("movieId") Long movieId, @PathVariable("artistId") Long artistId, Model model) {
+        this.movieService.addDirectorToMovie(movieId, artistId);
+        model.addAttribute("movie",this.movieService.getMovieById(movieId));
+        return"redirect:/modificaFilm/" + movieId;
+    }
+
     @GetMapping("/aggiornaAttori/{id}")
     public String aggiornaAttoriPerFilm(@PathVariable("id") Long id, Model model) {
         Movie movie=this.movieService.getMovieById(id);
