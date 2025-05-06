@@ -22,4 +22,16 @@ public class MovieService {
     public void save(Movie movie) {
         movieRepository.save(movie);
     }
+
+    public void deleteById(Long id) {
+        movieRepository.deleteById(id);
+    }
+
+    public void addDirectorToMovie(Long movieId, Long directorId) {
+        movieRepository.addDirectorToMovie(movieId, directorId);
+    }
+
+    public void addActorToMovie(Long movieId, Long actorId) {
+        movieRepository.addActorToMovie(movieId, actorId);
+    }
 }

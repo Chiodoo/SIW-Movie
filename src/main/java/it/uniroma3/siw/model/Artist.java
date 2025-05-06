@@ -1,11 +1,14 @@
 package it.uniroma3.siw.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -22,6 +25,12 @@ public class Artist {
         private String surname;
         @NotNull
         private LocalDate birth;
+
+        @ManyToMany(mappedBy = "actors")
+        private List<Movie> movies;
+
+        @OneToMany
+        private List<Movie> directorOf;
 
         public Long getId() {
                 return id;
