@@ -1,6 +1,6 @@
 # SIW-Movie project
 ## Portale per organizzare film e relativi artisti
-Progetto di gruppo svolto per l'esame di "Sistemi Informativi sul Web"
+Progetto svolto durante il corso di "Sistemi Informativi sul Web"
 
 ## Author
 <a href="https://github.com/Chiodoo">
