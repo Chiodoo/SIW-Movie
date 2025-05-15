@@ -20,7 +20,7 @@ public class CredentialsService {
         return credentialsRepository.findByUsername(username).get();
     }
 
-    public Credentials saveCredentuals(Credentials credentials) {
+    public Credentials saveCredentials(Credentials credentials) {
         return credentialsRepository.save(credentials);
     }
 }
