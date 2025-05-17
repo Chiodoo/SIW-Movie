@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class homePage {
 
 
-    @GetMapping("/")
-    public String home(Model model) {
-        return "homePage.html";
-    }
+    // @GetMapping("/")
+    // public String home(Model model) {
+    //     return "homePage";
+    // }
 
     @GetMapping("/artistIndex")
     public String homeArtist(Model model) {
-        return "artistIndex.html";
+        return "artistIndex";
     }
 
     @GetMapping("/movieIndex")
     public String homeMovie(Model model) {
-        return "movieIndex.html";
+        return "movieIndex";
     }
 }

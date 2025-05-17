@@ -1,6 +1,8 @@
 package it.uniroma3.siw.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
 // import org.springframework.security.authentication.AnonymousAuthenticationToken;
 // import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,10 +17,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import it.uniroma3.siw.model.Credentials;
 import it.uniroma3.siw.model.User;
 import it.uniroma3.siw.service.CredentialsService;
+import it.uniroma3.siw.service.UserService;
 import jakarta.validation.Valid;
 
 @Controller
 public class AuthenticationController {
+
+	@Autowired
+	private UserService userService;
 	
 	@Autowired
 	private CredentialsService credentialsService;
@@ -35,32 +41,31 @@ public class AuthenticationController {
 		return "formLogin";
 	}
 
-	// @GetMapping(value = "/") 
-	// public String index(Model model) {
-	// 	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-	// 	if (authentication instanceof AnonymousAuthenticationToken) {
-	//         return "homePage.html";
-	// 	}
-	// 	else {		
-	// 		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-	// 		Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
-	// 		if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
-	// 			return "admin/indexAdmin.html";
-	// 		}
-	// 	}
-    //     return "homePage.html";
-	// }
+	@GetMapping(value = "/") 
+	public String index(Model model) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (authentication instanceof AnonymousAuthenticationToken) {
+	        return "homePage";
+		}
+		else {		
+			UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
+			if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
+				return "admin/indexAdmin.html";
+			}
+		}
+        return "homePage";
+	}
 		
-    @GetMapping(value = "/success")
-    public String defaultAfterLogin(Model model) {
-        
-    	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
-    	if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
-            return "admin/indexAdmin.html";
-        }
-        return "index.html";
+@GetMapping(value = "/success")
+public String defaultAfterLogin(Model model) {
+    UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
+    if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
+        return "admin/indexAdmin";
     }
+    return "index";
+}
 
 	@PostMapping(value = { "/register" })
     public String registerUser(@Valid @ModelAttribute("user") User user,
@@ -69,8 +74,9 @@ public class AuthenticationController {
                  BindingResult credentialsBindingResult,
                  Model model) {
 
-        // se user e credential hanno entrambi contenuti validi, memorizza User e the Credentials nel DB
-        if(!userBindingResult.hasErrors() && ! credentialsBindingResult.hasErrors()) {
+		// se user e credential hanno entrambi contenuti validi, memorizza User e the Credentials nel DB
+        if(!userBindingResult.hasErrors() && !credentialsBindingResult.hasErrors()) {
+            userService.saveUser(user);
             credentials.setUser(user);
             credentialsService.saveCredentials(credentials);
             model.addAttribute("user", user);

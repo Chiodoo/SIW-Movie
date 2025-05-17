@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Home SIW Movie</title>
-    <link rel="stylesheet" href="/style.css?version=2" />
-  </head>
 
-  <body>
-        <h1>
-            <a href="movieIndex">Operazioni sui film</a>
-        </h1>
+<head>
+	<title>
+		Home SIW-Movie
+	</title>
+	<link rel="stylesheet" href="/css/stile.css" />
+</head>
 
-        <h1>
-            <a href="artistIndex">Operazioni sugli artisti</a>
-        </h1>
-        <h1>
-            <a href="formLogin">Login</a>
-        </h1>
-  </body>
+<body>
+	<header>
+		<div th:if="${userDetails}">
+			<span th:text="${userDetails.username}"></span>
+			<a href="/logout">Logout</a>
+		</div>
+		<div th:unless="${user}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+  <!-- Serve avere l'userDetails nel form e controllarlo, dopo che lo aggiunto come default ad ogni vista-->
+
+	<div>
+		<a href="/movieIndex">Operazioni sui film</a>
+	</div>
+	<div>
+		<a href="/artistIndex">Operazioni sugli artisti</a>
+	</div>
+</body>
+
 </html>

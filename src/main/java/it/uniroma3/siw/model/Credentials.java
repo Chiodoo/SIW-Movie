@@ -13,7 +13,7 @@ import jakarta.validation.constraints.NotBlank;
 public class Credentials {
 
     // Costanti per i ruoli
-    public static final String DEFAULT_ROLE = "USER";
+    public static final String DEFAULT_ROLE = "DEFAULT";
     public static final String ADMIN_ROLE = "ADMIN";
 
     @Id
