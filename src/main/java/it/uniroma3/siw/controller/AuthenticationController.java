@@ -75,13 +75,14 @@ public class AuthenticationController {
         return "homePage";
 	}
 		
-@GetMapping(value = "/success")
-public String defaultAfterLogin(Model model) {
-    UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
-    if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
-        return "admin/indexAdmin";
+    @GetMapping(value = "/success")
+    public String defaultAfterLogin(Model model) {
+        
+    	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
+    	if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
+            return "admin/indexAdmin";
+        }
+        return "homePage";
     }
-    return "index";
-}
 }
