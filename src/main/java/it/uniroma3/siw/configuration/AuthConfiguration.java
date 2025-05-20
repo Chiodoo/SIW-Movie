@@ -48,7 +48,6 @@ public class AuthConfiguration {
     @Bean
     protected SecurityFilterChain configure(final HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-            .csrf(csrf -> csrf.disable())  // Disabilita CSRF solo se necessario (form non sicuri)
             .cors(cors -> cors.disable())
             .authorizeHttpRequests(requests -> requests
                 // Pagine pubbliche e risorse statiche
