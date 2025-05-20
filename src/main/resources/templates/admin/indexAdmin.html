@@ -3,21 +3,18 @@
 
 <head>
 	<title>
-		Home SIW-Movie
+		Home SIW-Movie Admin
 	</title>
 	<link rel="stylesheet" href="/css/stile.css" />
 </head>
 
 <body>
+	<h1>Benvenuto nella pagina da amministratore</h1>
 	<div><a href="/"><img src="/images/logo-siw.png" width="20%"></a></div>
 	<header>
 		<div th:if="${userDetails}">
 			<span th:text="${userDetails.username}"></span>
-
-			<form th:action="@{/logout}" method="post">
-				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-				<button type="submit">Logout</button>
-			</form>
+			<a href="/logout">Logout</a>
 		</div>
 		<div th:unless="${userDetails}"> <!--Questo div viene mostrato solo se il contenuto della variabile "user" è "null" o "false"-->
 			<a href="/login">Login</a>
