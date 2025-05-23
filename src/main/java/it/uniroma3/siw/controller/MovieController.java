@@ -76,7 +76,7 @@ public class MovieController {
     }
 
 
-    @GetMapping("modificaFilm/{id}")
+    @GetMapping("/modificaFilm/{id}")
     public String modificaFilm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("movie", this.movieService.getMovieById(id));
         return "modificaFilm.html";
@@ -104,7 +104,7 @@ public class MovieController {
         List<Artist> liberi = (List<Artist>) this.artistService.getAllArtists(); //Tutti gli artisti presenti nel sistema
         liberi.removeAll(movie.getActors()); //Attori che non sono già associati a nessun film
         model.addAttribute("attoriLiberi", liberi);
-        return "aggiornaAttori.html";
+        return "aggiornaAttori";
     }
 
     @GetMapping("/aggiungiAttoreAFilm/{movieId}/{artistId}")
@@ -116,6 +116,6 @@ public class MovieController {
         List<Artist> liberi = (List<Artist>) this.artistService.getAllArtists(); //Tutti gli artisti presenti nel sistema
         liberi.removeAll(movie.getActors()); //Attori che non sono già associati a nessun film
         model.addAttribute("attoriLiberi", liberi);
-        return "aggiornaAttori.html";
+        return "redirect:/aggiornaAttori/"+movieId;
     }
 }
