@@ -24,6 +24,7 @@
 		</div>
 		<div th:unless="${userDetails}"> <!--Questo div viene mostrato solo se il contenuto della variabile "userDetails" è "null" o "false"-->
 			<a th:href="@{/register}">Registrati</a>
+		</div>
 	</header>
   <!-- Serve avere l'userDetails nel form e controllarlo, dopo che lo aggiunto come default ad ogni vista-->
 
